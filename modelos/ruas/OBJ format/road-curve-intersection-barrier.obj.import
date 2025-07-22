@@ -1,0 +1,25 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://dfg0s5t7eclad"
+path="res://.godot/imported/road-curve-intersection-barrier.obj-e01dace0b7a74cfcb46680f2457c5052.mesh"
+
+[deps]
+
+files=["res://.godot/imported/road-curve-intersection-barrier.obj-e01dace0b7a74cfcb46680f2457c5052.mesh"]
+
+source_file="res://modelos/ruas/OBJ format/road-curve-intersection-barrier.obj"
+dest_files=["res://.godot/imported/road-curve-intersection-barrier.obj-e01dace0b7a74cfcb46680f2457c5052.mesh", "res://.godot/imported/road-curve-intersection-barrier.obj-e01dace0b7a74cfcb46680f2457c5052.mesh"]
+
+[params]
+
+generate_tangents=true
+generate_lods=true
+generate_shadow_mesh=true
+generate_lightmap_uv2=false
+generate_lightmap_uv2_texel_size=0.2
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+force_disable_mesh_compression=false

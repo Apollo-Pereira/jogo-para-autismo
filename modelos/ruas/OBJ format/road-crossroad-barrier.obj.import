@@ -1,0 +1,25 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://n8nue4cng0xx"
+path="res://.godot/imported/road-crossroad-barrier.obj-974ae45bd269d093b82bb107b7673d4e.mesh"
+
+[deps]
+
+files=["res://.godot/imported/road-crossroad-barrier.obj-974ae45bd269d093b82bb107b7673d4e.mesh"]
+
+source_file="res://modelos/ruas/OBJ format/road-crossroad-barrier.obj"
+dest_files=["res://.godot/imported/road-crossroad-barrier.obj-974ae45bd269d093b82bb107b7673d4e.mesh", "res://.godot/imported/road-crossroad-barrier.obj-974ae45bd269d093b82bb107b7673d4e.mesh"]
+
+[params]
+
+generate_tangents=true
+generate_lods=true
+generate_shadow_mesh=true
+generate_lightmap_uv2=false
+generate_lightmap_uv2_texel_size=0.2
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+force_disable_mesh_compression=false

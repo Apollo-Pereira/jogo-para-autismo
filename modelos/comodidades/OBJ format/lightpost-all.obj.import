@@ -1,0 +1,25 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://cqog0k5pvrjrq"
+path="res://.godot/imported/lightpost-all.obj-7402f495f5608832b82af0b8fe8abc0c.mesh"
+
+[deps]
+
+files=["res://.godot/imported/lightpost-all.obj-7402f495f5608832b82af0b8fe8abc0c.mesh"]
+
+source_file="res://modelos/comodidades/OBJ format/lightpost-all.obj"
+dest_files=["res://.godot/imported/lightpost-all.obj-7402f495f5608832b82af0b8fe8abc0c.mesh", "res://.godot/imported/lightpost-all.obj-7402f495f5608832b82af0b8fe8abc0c.mesh"]
+
+[params]
+
+generate_tangents=true
+generate_lods=true
+generate_shadow_mesh=true
+generate_lightmap_uv2=false
+generate_lightmap_uv2_texel_size=0.2
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+force_disable_mesh_compression=false

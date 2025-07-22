@@ -1,0 +1,25 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://cou7m2t17388t"
+path="res://.godot/imported/iron-fence-border.obj-bf2844c60fd9dae076071c7a98507abf.mesh"
+
+[deps]
+
+files=["res://.godot/imported/iron-fence-border.obj-bf2844c60fd9dae076071c7a98507abf.mesh"]
+
+source_file="res://modelos/comodidades/OBJ format/iron-fence-border.obj"
+dest_files=["res://.godot/imported/iron-fence-border.obj-bf2844c60fd9dae076071c7a98507abf.mesh", "res://.godot/imported/iron-fence-border.obj-bf2844c60fd9dae076071c7a98507abf.mesh"]
+
+[params]
+
+generate_tangents=true
+generate_lods=true
+generate_shadow_mesh=true
+generate_lightmap_uv2=false
+generate_lightmap_uv2_texel_size=0.2
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+force_disable_mesh_compression=false

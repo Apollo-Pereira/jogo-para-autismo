@@ -1,0 +1,25 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://n1x2v6ame0vc"
+path="res://.godot/imported/road-side-entry.obj-3f6c31ba36f0cd2296815b5cdf10a204.mesh"
+
+[deps]
+
+files=["res://.godot/imported/road-side-entry.obj-3f6c31ba36f0cd2296815b5cdf10a204.mesh"]
+
+source_file="res://modelos/ruas/OBJ format/road-side-entry.obj"
+dest_files=["res://.godot/imported/road-side-entry.obj-3f6c31ba36f0cd2296815b5cdf10a204.mesh", "res://.godot/imported/road-side-entry.obj-3f6c31ba36f0cd2296815b5cdf10a204.mesh"]
+
+[params]
+
+generate_tangents=true
+generate_lods=true
+generate_shadow_mesh=true
+generate_lightmap_uv2=false
+generate_lightmap_uv2_texel_size=0.2
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+force_disable_mesh_compression=false

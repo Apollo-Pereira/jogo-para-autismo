@@ -1,0 +1,25 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://bmtv12rvh4bhl"
+path="res://.godot/imported/building-type-j.obj-109288f476a14b3b539679f80d417531.mesh"
+
+[deps]
+
+files=["res://.godot/imported/building-type-j.obj-109288f476a14b3b539679f80d417531.mesh"]
+
+source_file="res://modelos/casas/OBJ format/building-type-j.obj"
+dest_files=["res://.godot/imported/building-type-j.obj-109288f476a14b3b539679f80d417531.mesh", "res://.godot/imported/building-type-j.obj-109288f476a14b3b539679f80d417531.mesh"]
+
+[params]
+
+generate_tangents=true
+generate_lods=true
+generate_shadow_mesh=true
+generate_lightmap_uv2=false
+generate_lightmap_uv2_texel_size=0.2
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+force_disable_mesh_compression=false
