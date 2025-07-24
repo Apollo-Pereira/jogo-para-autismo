@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://dsc0cfdue7ye8"]
+
+[ext_resource type="Script" uid="uid://b70uf56f8iev6" path="res://cenas/codigos_das_cenas/label_3d.gd" id="1_rq2pm"]
+
+[node name="Texto_de_Interface" type="Node3D"]
+
+[node name="Label3D" type="Label3D" parent="."]
+visible = false
+outline_modulate = Color(0.481789, 0.481789, 0.481789, 1)
+text = "Aperte (E) para conversar."
+script = ExtResource("1_rq2pm")
