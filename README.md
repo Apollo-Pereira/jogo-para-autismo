@@ -11,7 +11,7 @@
 
 ## Tecnologias utilizadas
 - Godot 4.4.x
-- Terrain 3D (addon da godot)
+-- Terrain 3D (addon da godot)
 - Blender
 - Mixamo
 
