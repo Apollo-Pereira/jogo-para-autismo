@@ -11,8 +11,16 @@ func _on_area_body_entered(body: Node3D) -> void:
 	if body.is_in_group("Jogador"):
 		print("O player entrou na área do NPC!")
 		tracker.track(body)
+		$dialogue_manager.start("dialogue")
+		
 
 func _on_area_body_exited(body: Node3D) -> void:
 	if body.is_in_group("Jogador"):
 		print("O player saiu da área do NPC.")
 		tracker.untrack(body)
+
+
+func _on_dialogue_manager_made_choice(choice: String, message: String) -> void:
+	if choice == """Podemos conversar e inventar
+ uma história juntos pra passar o tempo.""":
+		$dialogue_manager.continue_to("dialogue2")

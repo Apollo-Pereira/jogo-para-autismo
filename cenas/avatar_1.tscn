@@ -1,7 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://bbt8txn16trx7"]
+[gd_scene load_steps=8 format=3 uid="uid://bbt8txn16trx7"]
 
 [ext_resource type="Script" uid="uid://1s5ojmvdssxg" path="res://cenas/codigos_das_cenas/avatar_1.gd" id="1_nelx1"]
 [ext_resource type="PackedScene" uid="uid://dsc0cfdue7ye8" path="res://cenas/texto_de_interface.tscn" id="2_5g5f4"]
+[ext_resource type="PackedScene" uid="uid://bmeiv1c8q5tey" path="res://addons/dialogue/scenes/dialogue_manager.tscn" id="3_es1jn"]
+[ext_resource type="PackedScene" uid="uid://dnrcj1mhyy4b3" path="res://addons/dialogue/scenes/dialogue.tscn" id="4_p0aqx"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_5g5f4"]
 
@@ -30,3 +32,18 @@ shape = SubResource("CylinderShape3D_nelx1")
 
 [node name="Texto_de_Interface" parent="." instance=ExtResource("2_5g5f4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+
+[node name="dialogue_manager" parent="." instance=ExtResource("3_es1jn")]
+
+[node name="dialogue" parent="dialogue_manager" instance=ExtResource("4_p0aqx")]
+messages = ["1;Ei! Que bom que você passou por aqui! 
+Eu tava aqui fora pensando no que fazer… queria conversar ou fazer alguma coisa divertida. 
+O que você acha?;1;3;Podemos só ficar aqui batendo papo,
+ sem fazer nada especial.;Podemos conversar e inventar
+ uma história juntos pra passar o tempo.;Que tal a gente criar um jogo de perguntas e
+ respostas pra ver quem conhece mais curiosidades?", "1;Tá bom, só conversar também é legal. Às vezes não precisa fazer nada demais pra se sentir bem.;2", "2;Boa ideia! Inventar uma história juntos vai ser divertido. Cada um pode falar uma parte e ver como ela termina!;2", "3;Hahaha! Adorei! Um jogo de perguntas e respostas vai deixar isso mais animado. Bora ver quem vai ganhar!;2", "1;Agora que decidimos, podemos começar a conversar, inventar histórias ou jogar o nosso desafio de perguntas e respostas.;1;3;Vamos apenas bater papo.;Podemos inventar uma história juntos.;Que tal começar o jogo de perguntas e respostas?"]
+
+[node name="dialogue2" parent="dialogue_manager" instance=ExtResource("4_p0aqx")]
+messages = ["3;Hahaha! Adorei! Um jogo de perguntas e respostas vai deixar isso mais animado. Bora ver quem vai ganhar!;2", "1;Agora que decidimos, podemos começar a conversar, inventar histórias ou jogar o nosso desafio de perguntas e respostas.;1;3;Vamos apenas bater papo.;Podemos inventar uma história juntos.;Que tal começar o jogo de perguntas e respostas?"]
+
+[connection signal="made_choice" from="dialogue_manager" to="." method="_on_dialogue_manager_made_choice"]

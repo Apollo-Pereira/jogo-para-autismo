@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://be5b8wfg8j6i"]
+[gd_scene load_steps=24 format=3 uid="uid://be5b8wfg8j6i"]
 
 [ext_resource type="PackedScene" uid="uid://kvw56kqq2oqm" path="res://cenas/jogador.tscn" id="1_o5qli"]
 [ext_resource type="MeshLibrary" uid="uid://4feieq5oewyx" path="res://mapa_de_modelos/ruas.tres" id="3_b30p5"]
@@ -8,7 +8,10 @@
 [ext_resource type="Script" uid="uid://dcoxb8wa1vstd" path="res://addons/zylann.hterrain/hterrain_texture_set.gd" id="6_1yycb"]
 [ext_resource type="Script" uid="uid://74qc7bdhr4xc" path="res://addons/zylann.hterrain/hterrain_detail_layer.gd" id="7_1yycb"]
 [ext_resource type="PackedScene" uid="uid://bbt8txn16trx7" path="res://cenas/avatar_1.tscn" id="7_l8342"]
+[ext_resource type="Texture2D" uid="uid://csgt6xaa2forg" path="res://texturas/gramas/PNG/Flat/sprite_0007.png" id="8_iwfo7"]
 [ext_resource type="Texture2D" uid="uid://6jmdwj3vn6m0" path="res://addons/zylann.hterrain/tools/icons/icon_detail_layer_node.svg" id="8_jdavq"]
+[ext_resource type="Shader" uid="uid://dfim14h0huktj" path="res://cenas/Water.gdshader" id="11_g6klm"]
+[ext_resource type="Texture2D" uid="uid://ckp25rxaf1fh0" path="res://texturas/seamless-pattern-of-water-texture-shiny-waves-in-pool-sea-or-ocean-summer-concept-vector.jpg" id="12_klgsu"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_4fhxt"]
 sky_top_color = Color(0.184747, 0.598411, 0.835576, 1)
@@ -24,8 +27,8 @@ sky_material = SubResource("ProceduralSkyMaterial_4fhxt")
 background_mode = 2
 sky = SubResource("Sky_b30p5")
 fog_enabled = true
-fog_light_color = Color(0.687122, 0.684817, 0.703887, 1)
-fog_density = 0.005
+fog_light_color = Color(0.623654, 0.708423, 0.699513, 1)
+fog_density = 0.004
 fog_sky_affect = 0.0
 
 [sub_resource type="Gradient" id="Gradient_bhvw8"]
@@ -58,10 +61,25 @@ script = ExtResource("6_1yycb")
 mode = 0
 textures = [[], []]
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ocpn0"]
+render_priority = 0
+shader = ExtResource("11_g6klm")
+shader_parameter/slide_speed = 0.3
+shader_parameter/wobble_speed = 1.0
+shader_parameter/wobble_intensity = 0.4
+shader_parameter/texture_scale = 0.2
+shader_parameter/water = ExtResource("12_klgsu")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_gl1un"]
+material = SubResource("ShaderMaterial_ocpn0")
+size = Vector2(2000, 2000)
+subdivide_width = 20
+subdivide_depth = 20
+
 [node name="Principal" type="Node3D"]
 
 [node name="Sol" type="DirectionalLight3D" parent="."]
-transform = Transform3D(-0.744901, -0.117419, 0.656762, 0.441727, 0.650932, 0.617385, -0.5, 0.75, -0.433013, 0, 0, 0)
+transform = Transform3D(-0.86204, -0.478934, 0.165859, -0.0829902, 0.456204, 0.885997, -0.5, 0.75, -0.433013, 0, 0, 0)
 shadow_enabled = true
 
 [node name="Ambiente" type="WorldEnvironment" parent="."]
@@ -100,7 +118,9 @@ mesh = SubResource("PlaneMesh_jdavq")
 skeleton = NodePath("../Ambiente")
 
 [node name="HTerrain" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -4, 0)
 script = ExtResource("4_l8342")
+ambient_wind = 0.05
 centered = true
 _terrain_data = ExtResource("5_v1d1r")
 chunk_size = 32
@@ -121,12 +141,19 @@ metadata/_custom_type_script = "uid://bwqetyf8lnp1"
 
 [node name="HTerrainDetailLayer" type="Node3D" parent="HTerrain"]
 script = ExtResource("7_1yycb")
-shader_params/u_globalmap_tint_bottom = null
-shader_params/u_globalmap_tint_top = null
-shader_params/u_bottom_ao = null
+texture = ExtResource("8_iwfo7")
+density = 2.0
+cast_shadow = 0
+shader_params/u_globalmap_tint_bottom = 1.0
+shader_params/u_globalmap_tint_top = 0.8
+shader_params/u_bottom_ao = 0.0
 shader_params/u_instance_scale = null
 shader_params/u_roughness = null
 metadata/_editor_icon = ExtResource("8_jdavq")
 
 [node name="Avatar_1" parent="." instance=ExtResource("7_l8342")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.55078, 1.2, 7.17053)
+
+[node name="Agua" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.3, 0)
+mesh = SubResource("PlaneMesh_gl1un")
