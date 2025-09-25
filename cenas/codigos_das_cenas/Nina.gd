@@ -11,7 +11,7 @@ func _ready() -> void:
 	$Area3D.body_exited.connect(_on_area_body_exited)
 	
 func _on_area_body_entered(body: Node3D) -> void:
-	if body.is_in_group("Jogadr"):
+	if body.is_in_group("Jogador"):
 		print("O player entrou na área do NPC!")
 		tracker.track(body)
 		$dialogue_manager.start("dialogue")
