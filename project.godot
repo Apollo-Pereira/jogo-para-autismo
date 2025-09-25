@@ -23,6 +23,11 @@ project/assembly_name="autismo"
 
 enabled=PackedStringArray("res://addons/zylann.hterrain/plugin.cfg")
 
+[global_group]
+
+Jogador=""
+avatares=""
+
 [input]
 
 up={
