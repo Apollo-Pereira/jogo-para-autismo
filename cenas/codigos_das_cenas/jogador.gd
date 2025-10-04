@@ -1,7 +1,7 @@
 extends CharacterBody3D
 
 const SPEED = 5.0
-const ACCEL = 10.0           # aceleração
+const ACCEL = 9.0           # aceleração
 const DECEL = 15.0           # desaceleração
 const JUMP_VELOCITY = 4.5
 
