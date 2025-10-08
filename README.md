@@ -58,9 +58,6 @@ projeto.gd
 ## ✨ Futuras Funcionalidades
 
 * [ ] Sistema de missões interativas
-* [ ] Personalização de personagens
-* [ ] Mini-jogos para habilidades sociais
-* [ ] Multiplayer cooperativo
 
 ---
 
