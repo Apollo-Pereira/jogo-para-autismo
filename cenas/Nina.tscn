@@ -39,7 +39,7 @@ name_color_ = Color(1, 0, 0, 1)
 name__ = "B"
 
 [node name="dialogue" parent="dialogue_manager" instance=ExtResource("4_p0aqx")]
-messages = [null]
+messages = ["1;Olá amigo! Eu me chamo Nina e seja bem-vindo ao vilarejo nas montanhas. Eu irei ajudá-lo com suas missões. Está pronto para começar?;1;2;Estou pronto.;Ainda não estou pronto."]
 
 [node name="dialogue2" parent="dialogue_manager" instance=ExtResource("4_p0aqx")]
 

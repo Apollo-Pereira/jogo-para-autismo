@@ -10,7 +10,7 @@ var animacao = "idle"
 signal dcomecou
 signal dterminou
 
-func _process(delta: float) -> void:
+func _physics_process(delta: float) -> void:
 	anim_player.play(animacao)
 
 func _ready() -> void:
