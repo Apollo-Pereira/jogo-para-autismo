@@ -5,7 +5,7 @@ extends Node3D
 @onready var dialogo: Node = $"dialogue_manager"
 @onready var anim_player : AnimationPlayer = $'Aparencia/AnimationPlayer'
 
-var imagem: CompressedTexture2D
+var imagem: CompressedTexture2D = load("res://modelos/personagens/Imagens_Poppy/Poppy0.png")
 var animacao = "idle"
 signal dcomecou
 signal dterminou
@@ -23,8 +23,10 @@ func _on_area_body_entered(body: Node3D) -> void:
 		print("O player entrou na área do NPC!")
 		tracker.track(body)
 		emit_signal("dcomecou")
-		dialogo.start("dialogue")
 		dialogo.set('avatar_', imagem)
+		dialogo.start("dialogue")
+		
+		
 		
 
 func _on_area_body_exited(body: Node3D) -> void:
