@@ -33,10 +33,13 @@ shape = SubResource("CylinderShape3D_nelx1")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 
 [node name="dialogue_manager" parent="." instance=ExtResource("3_es1jn")]
-name_ = "A"
+style = 1
+name_ = "Nina"
+name_color_ = Color(1, 0, 0, 1)
 name__ = "B"
 
 [node name="dialogue" parent="dialogue_manager" instance=ExtResource("4_p0aqx")]
+messages = [null]
 
 [node name="dialogue2" parent="dialogue_manager" instance=ExtResource("4_p0aqx")]
 
