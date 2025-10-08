@@ -102,7 +102,7 @@ func advance_message():
 	message_position += 1
 
 	if message_position >= messages.size():
-		queue_free()
+		refresh()
 		return
 
 	var dialogue = messages[message_position].split(separator)

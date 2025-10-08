@@ -3,9 +3,15 @@ extends Node3D
 @onready var tracker: Node3D = $Texto_de_Interface/Label3D
 @onready var jogador: Node3D = $"../Jogador"
 @onready var dialogo: Node = $"dialogue_manager"
+@onready var anim_player : AnimationPlayer = $'Aparencia/AnimationPlayer'
 
+var imagem: CompressedTexture2D
+var animacao = "idle"
 signal dcomecou
 signal dterminou
+
+func _process(delta: float) -> void:
+	anim_player.play(animacao)
 
 func _ready() -> void:
 	$Area3D.body_entered.connect(_on_area_body_entered)
@@ -18,6 +24,7 @@ func _on_area_body_entered(body: Node3D) -> void:
 		tracker.track(body)
 		emit_signal("dcomecou")
 		dialogo.start("dialogue")
+		dialogo.set('avatar_', imagem)
 		
 
 func _on_area_body_exited(body: Node3D) -> void:
@@ -30,3 +37,4 @@ func _on_area_body_exited(body: Node3D) -> void:
 func _on_dialogue_manager_made_choice(choice: String, message: String) -> void:
 	if choice == "Não quero conversar":
 		dialogo.continue_to("dialogue2")# Replace with function body.
+		

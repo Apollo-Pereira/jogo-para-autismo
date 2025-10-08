@@ -79,9 +79,9 @@ subdivide_depth = 20
 
 [node name="Principal" type="Node3D"]
 
-[node name="Sol" type="DirectionalLight3D" parent="."]
-transform = Transform3D(-0.86204, -0.478934, 0.165859, -0.0829902, 0.456204, 0.885997, -0.5, 0.75, -0.433013, 0, 0, 0)
-shadow_enabled = true
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
+directional_shadow_mode = 0
 
 [node name="Ambiente" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_5wwvk")
@@ -143,7 +143,7 @@ metadata/_custom_type_script = "uid://bwqetyf8lnp1"
 [node name="HTerrainDetailLayer" type="Node3D" parent="HTerrain"]
 script = ExtResource("7_1yycb")
 texture = ExtResource("8_iwfo7")
-density = 2.0
+density = 1.0
 cast_shadow = 0
 shader_params/u_globalmap_tint_bottom = 1.0
 shader_params/u_globalmap_tint_top = 0.8

@@ -33,6 +33,9 @@ shape = SubResource("CylinderShape3D_nelx1")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 
 [node name="dialogue_manager" parent="." instance=ExtResource("4_5oyae")]
+style = 1
+name_ = "Poppy"
+name_color_ = Color(1, 0, 0, 1)
 
 [node name="dialogue" parent="dialogue_manager" instance=ExtResource("5_oqyxn")]
 messages = ["1;Oi! Que bom que você veio brincar!;1", "1;Hoje eu desenhei uma amarelinha
@@ -40,6 +43,7 @@ bem colorida na frente da minha casa. ;2", "1;Quer tentar pular comigo?;1;3;Não
 "]
 
 [node name="dialogue2" parent="dialogue_manager" instance=ExtResource("5_oqyxn")]
-messages = ["1;Hum… legal! Pelo menos você está pulando comigo, mesmo sem se preocupar muito com a ordem. É divertido assim também!;2"]
+messages = ["1;Hum… legal! Pelo menos você está pulando comigo,
+ mesmo sem se preocupar muito com a ordem. É divertido assim também!;2"]
 
 [connection signal="made_choice" from="dialogue_manager" to="." method="_on_dialogue_manager_made_choice"]
