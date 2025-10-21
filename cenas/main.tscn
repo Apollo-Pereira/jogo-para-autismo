@@ -1,8 +1,9 @@
-[gd_scene load_steps=28 format=3 uid="uid://be5b8wfg8j6i"]
+[gd_scene load_steps=26 format=3 uid="uid://be5b8wfg8j6i"]
 
 [ext_resource type="PackedScene" uid="uid://kvw56kqq2oqm" path="res://cenas/jogador.tscn" id="1_o5qli"]
 [ext_resource type="MeshLibrary" uid="uid://4feieq5oewyx" path="res://mapa_de_modelos/ruas.tres" id="3_b30p5"]
 [ext_resource type="MeshLibrary" uid="uid://blb3j15p7twnr" path="res://mapa_de_modelos/casas.tres" id="4_5wwvk"]
+[ext_resource type="Shader" uid="uid://cw0ucla7olguc" path="res://jam.tres" id="4_dfnyg"]
 [ext_resource type="Script" uid="uid://bwqetyf8lnp1" path="res://addons/zylann.hterrain/hterrain.gd" id="4_l8342"]
 [ext_resource type="Resource" uid="uid://cn5g1hmge4dfh" path="res://terreno/data.hterrain" id="5_v1d1r"]
 [ext_resource type="Script" uid="uid://dcoxb8wa1vstd" path="res://addons/zylann.hterrain/hterrain_texture_set.gd" id="6_1yycb"]
@@ -11,17 +12,17 @@
 [ext_resource type="Texture2D" uid="uid://csgt6xaa2forg" path="res://texturas/gramas/PNG/Flat/sprite_0007.png" id="8_iwfo7"]
 [ext_resource type="Texture2D" uid="uid://6jmdwj3vn6m0" path="res://addons/zylann.hterrain/tools/icons/icon_detail_layer_node.svg" id="8_jdavq"]
 [ext_resource type="Shader" uid="uid://dfim14h0huktj" path="res://cenas/Water.gdshader" id="11_g6klm"]
-[ext_resource type="Texture2D" uid="uid://ckp25rxaf1fh0" path="res://texturas/seamless-pattern-of-water-texture-shiny-waves-in-pool-sea-or-ocean-summer-concept-vector.jpg" id="12_klgsu"]
+[ext_resource type="Texture2D" uid="uid://cojoc1gl57qa0" path="res://texturas/seamless-pattern-of-water-texture-shiny-waves-in-pool-sea-or-ocean-summer-concept-vector.png" id="12_dfnyg"]
 [ext_resource type="PackedScene" uid="uid://bq10wunotb71w" path="res://cenas/Poppy.tscn" id="13_g6klm"]
 [ext_resource type="PackedScene" uid="uid://dsf86kqxu8fej" path="res://cenas/Max.tscn" id="14_gl1un"]
 [ext_resource type="PackedScene" uid="uid://b5y5yr3h4cww" path="res://cenas/Lala.tscn" id="15_dfnyg"]
 [ext_resource type="PackedScene" uid="uid://dwwjp0a1sl0o2" path="res://cenas/Roberto.tscn" id="16_22nsn"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_4fhxt"]
-sky_top_color = Color(0.184747, 0.598411, 0.835576, 1)
-sky_horizon_color = Color(0.514458, 0.679162, 0.794479, 1)
-ground_bottom_color = Color(0.513726, 0.678431, 0.796078, 1)
-ground_horizon_color = Color(0.513726, 0.678431, 0.796078, 1)
+sky_top_color = Color(0.14999998, 0.6883334, 1, 1)
+sky_horizon_color = Color(0.2275, 0.8190001, 0.91, 1)
+ground_bottom_color = Color(0.80208176, 0.96465236, 0.9949847, 1)
+ground_horizon_color = Color(0.22745098, 0.81960785, 0.9098039, 1)
 sun_curve = 0.27991
 
 [sub_resource type="Sky" id="Sky_b30p5"]
@@ -30,34 +31,16 @@ sky_material = SubResource("ProceduralSkyMaterial_4fhxt")
 [sub_resource type="Environment" id="Environment_5wwvk"]
 background_mode = 2
 sky = SubResource("Sky_b30p5")
-fog_enabled = true
 fog_light_color = Color(0.623654, 0.708423, 0.699513, 1)
 fog_density = 0.004
 fog_sky_affect = 0.0
 
-[sub_resource type="Gradient" id="Gradient_bhvw8"]
-interpolation_mode = 2
-offsets = PackedFloat32Array(0.241935, 1)
-colors = PackedColorArray(0, 0, 0, 0, 1, 1, 1, 1)
-
-[sub_resource type="FastNoiseLite" id="FastNoiseLite_l8342"]
-frequency = 0.0041
-
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_v1d1r"]
-width = 4096
-height = 4096
-noise = SubResource("FastNoiseLite_l8342")
-color_ramp = SubResource("Gradient_bhvw8")
-seamless = true
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1yycb"]
-transparency = 1
-shading_mode = 0
-albedo_texture = SubResource("NoiseTexture2D_v1d1r")
-disable_receive_shadows = true
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_22nsn"]
+render_priority = 0
+shader = ExtResource("4_dfnyg")
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_jdavq"]
-material = SubResource("StandardMaterial3D_1yycb")
+material = SubResource("ShaderMaterial_22nsn")
 size = Vector2(15000, 15000)
 
 [sub_resource type="Resource" id="Resource_vhipe"]
@@ -72,7 +55,7 @@ shader_parameter/slide_speed = 0.3
 shader_parameter/wobble_speed = 1.0
 shader_parameter/wobble_intensity = 0.4
 shader_parameter/texture_scale = 0.2
-shader_parameter/water = ExtResource("12_klgsu")
+shader_parameter/water = ExtResource("12_dfnyg")
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_gl1un"]
 material = SubResource("ShaderMaterial_ocpn0")
@@ -84,14 +67,13 @@ subdivide_depth = 20
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
-light_color = Color(1, 0.877, 0.59000003, 1)
 directional_shadow_mode = 0
 
 [node name="Ambiente" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_5wwvk")
 
 [node name="Jogador" parent="." instance=ExtResource("1_o5qli")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 1)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.0833058, 0, -26.547935)
 collision_mask = 3
 
 [node name="Ruas" type="GridMap" parent="."]

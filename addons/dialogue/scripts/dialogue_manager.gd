@@ -3,7 +3,7 @@ extends Node
 # Signals
 signal showed_message(message: String, character_number: int)
 signal made_choice(choice: String, message: String)
-
+signal end_dialog
 # Exported Variables
 @export_enum("Subtitle", "Text Box") var style: int = 0
 
@@ -103,6 +103,7 @@ func advance_message():
 
 	if message_position >= messages.size():
 		refresh()
+		emit_signal('end_dialog')
 		return
 
 	var dialogue = messages[message_position].split(separator)

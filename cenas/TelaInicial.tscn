@@ -1,0 +1,145 @@
+[gd_scene load_steps=10 format=3 uid="uid://c0yw516c7rsir"]
+
+[ext_resource type="Script" uid="uid://dnppfdpvf1cir" path="res://cenas/tela_inicial.gd" id="1_4u2yi"]
+[ext_resource type="PackedScene" uid="uid://be5b8wfg8j6i" path="res://cenas/main.tscn" id="2_o6nwc"]
+[ext_resource type="Texture2D" uid="uid://caeesm7jwkyxt" path="res://texturas/ChatGPT Image Oct 12, 2025, 12_34_30 PM.png" id="3_ofmwq"]
+[ext_resource type="Texture2D" uid="uid://cdgowl8bw3m00" path="res://texturas/Cool Text - Talk Village 494387018977801.png" id="4_ofmwq"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_o6nwc"]
+bg_color = Color(0.267864, 0.49988657, 0.83184874, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(8.567274e-06, 0.26276693, 0.6311065, 1)
+border_blend = true
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+shadow_color = Color(0, 0, 0, 0.21568628)
+shadow_size = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ckbqy"]
+bg_color = Color(0.17587218, 0.3852487, 0.67978156, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(1.0588765e-06, 0.28352174, 0.6736264, 1)
+border_blend = true
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+shadow_color = Color(0, 0, 0, 0.21568628)
+shadow_size = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4u2yi"]
+bg_color = Color(0.25252512, 0.4835434, 0.8134647, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.7573161, 0.8492829, 0.99999946, 1)
+border_blend = true
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+shadow_color = Color(0, 0, 0, 0.21568628)
+shadow_size = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ofmwq"]
+bg_color = Color(0.25252512, 0.4835434, 0.8134647, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.7573161, 0.8492829, 0.99999946, 1)
+border_blend = true
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+shadow_color = Color(0, 0, 0, 0.21568628)
+shadow_size = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_povrp"]
+bg_color = Color(0.25252512, 0.4835434, 0.8134647, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.7573161, 0.8492829, 0.99999946, 1)
+border_blend = true
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+shadow_color = Color(0, 0, 0, 0.21568628)
+shadow_size = 5
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_4u2yi")
+start_scene = ExtResource("2_o6nwc")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -579.5
+offset_top = -330.0
+offset_right = 579.5
+offset_bottom = 330.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_ofmwq")
+expand_mode = 1
+
+[node name="TextureRect2" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -492.0
+offset_top = -222.0
+offset_right = 492.0
+offset_bottom = 13.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_ofmwq")
+stretch_mode = 5
+
+[node name="StartButton" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -105.0
+offset_top = 22.0
+offset_right = 102.0
+offset_bottom = 79.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_o6nwc")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_ckbqy")
+theme_override_styles/hover = SubResource("StyleBoxFlat_4u2yi")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_ofmwq")
+theme_override_styles/focus = SubResource("StyleBoxFlat_povrp")
+text = "Começar novo jogo"

@@ -16,7 +16,7 @@ func _physics_process(delta: float) -> void:
 func _ready() -> void:
 	$Area3D.body_entered.connect(_on_area_body_entered)
 	$Area3D.body_exited.connect(_on_area_body_exited)
-	
+	$dialogue_manager.end_dialog.connect(_on_end_of_dialog)
 	
 func _on_area_body_entered(body: Node3D) -> void:
 	if body.is_in_group("Jogador"):
@@ -40,3 +40,5 @@ func _on_dialogue_manager_made_choice(choice: String, message: String) -> void:
 	if choice == "Não quero conversar":
 		dialogo.continue_to("dialogue2")# Replace with function body.
 		
+func _on_end_of_dialog():
+	emit_signal("dterminou")

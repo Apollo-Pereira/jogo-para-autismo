@@ -5,7 +5,7 @@ const ACCEL = 9.0           # aceleração
 const DECEL = 15.0           # desaceleração
 const JUMP_VELOCITY = 4.5
 
-@export var sensitivity = 0.02
+@export var sensitivity = 0.005
 @export var controller_sensitivity = 2.0
 
 @onready var camera: Camera3D = $Camera3D
@@ -45,20 +45,21 @@ func _physics_process(delta: float) -> void:
 	# Movimento do personagem
 	if not is_on_floor():
 		velocity += get_gravity() * delta
-
-	if Input.is_action_just_pressed("jump") and is_on_floor():
-		velocity.y = JUMP_VELOCITY
-
-	var input_dir := Input.get_vector("left", "right", "up", "down")
-	var target_vel = (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized() * SPEED
-
-	# Aplica aceleração e desaceleração
-	var accel = ACCEL if target_vel.length() > 0 else DECEL
-	velocity.x = move_toward(velocity.x, target_vel.x, accel * delta)
-	velocity.z = move_toward(velocity.z, target_vel.z, accel * delta)
-
-	# Controle da câmera pelo gamepad (somente se não há diálogo)
+	
 	if not dialogo_ativo and mouse_capturado:
+		if Input.is_action_just_pressed("jump") and is_on_floor():
+			velocity.y = JUMP_VELOCITY
+
+		var input_dir := Input.get_vector("left", "right", "up", "down")
+		var target_vel = (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized() * SPEED
+
+		# Aplica aceleração e desaceleração
+		var accel = ACCEL if target_vel.length() > 0 else DECEL
+		velocity.x = move_toward(velocity.x, target_vel.x, accel * delta)
+		velocity.z = move_toward(velocity.z, target_vel.z, accel * delta)
+
+		# Controle da câmera pelo gamepad (somente se não há diálogo)
+		
 		var cam_x = Input.get_action_strength("cam_right") - Input.get_action_strength("cam_left")
 		var cam_y = Input.get_action_strength("cam_down") - Input.get_action_strength("cam_up")
 
@@ -71,8 +72,8 @@ func _physics_process(delta: float) -> void:
 				deg_to_rad(90)
 			)
 
-	move_and_slide()
-	emit_signal("atualizar_posicao", position)
+		move_and_slide()
+		emit_signal("atualizar_posicao", position)
 
 # ===========================
 # Funções dos sinais do diálogo

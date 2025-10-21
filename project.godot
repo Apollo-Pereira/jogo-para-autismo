@@ -11,9 +11,15 @@ config_version=5
 [application]
 
 config/name="autismo"
-run/main_scene="uid://be5b8wfg8j6i"
+run/main_scene="uid://c0yw516c7rsir"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://icon.svg"
+
+[display]
+
+window/size/mode=3
+window/stretch/mode="viewport"
+window/stretch/aspect="ignore"
 
 [dotnet]
 
@@ -83,4 +89,7 @@ cam_right={
 
 [rendering]
 
+occlusion_culling/bvh_build_quality=1
 renderer/rendering_method="mobile"
+occlusion_culling/occlusion_rays_per_thread=256
+occlusion_culling/use_occlusion_culling=true

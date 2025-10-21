@@ -1,0 +1,127 @@
+[gd_resource type="VisualShader" load_steps=13 format=3 uid="uid://cw0ucla7olguc"]
+
+[sub_resource type="VisualShaderNodeUVFunc" id="VisualShaderNodeUVFunc_vc2qb"]
+default_input_values = [1, Vector2(-0.001, 0.001), 2, Vector2(0, 0)]
+
+[sub_resource type="VisualShaderNodeUVFunc" id="VisualShaderNodeUVFunc_jsafc"]
+default_input_values = [1, Vector2(2, 2), 2, Vector2(0, 0)]
+function = 1
+
+[sub_resource type="Gradient" id="Gradient_ig62i"]
+interpolation_mode = 1
+offsets = PackedFloat32Array(0, 0.4620253)
+colors = PackedColorArray(0, 0, 0, 0, 1, 1, 1, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_xrncg"]
+fractal_octaves = 3
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_bgvx2"]
+width = 2048
+height = 2048
+noise = SubResource("FastNoiseLite_xrncg")
+color_ramp = SubResource("Gradient_ig62i")
+seamless = true
+
+[sub_resource type="VisualShaderNodeTexture" id="VisualShaderNodeTexture_qr24d"]
+texture = SubResource("NoiseTexture2D_bgvx2")
+
+[sub_resource type="VisualShaderNodeUVFunc" id="VisualShaderNodeUVFunc_b2iwy"]
+default_input_values = [1, Vector2(0.001, 0.001), 2, Vector2(0, 0)]
+
+[sub_resource type="VisualShaderNodeTexture" id="VisualShaderNodeTexture_n470t"]
+texture = SubResource("NoiseTexture2D_bgvx2")
+
+[sub_resource type="VisualShaderNodeInput" id="VisualShaderNodeInput_th6uq"]
+input_name = "time"
+
+[sub_resource type="VisualShaderNodeUVFunc" id="VisualShaderNodeUVFunc_ceccx"]
+default_input_values = [1, Vector2(2, 2), 2, Vector2(0, 0)]
+function = 1
+
+[sub_resource type="VisualShaderNodeVectorOp" id="VisualShaderNodeVectorOp_myone"]
+default_input_values = [0, Quaternion(0, 0, 0, 0), 1, Quaternion(0, 0, 0, 0)]
+op_type = 2
+operator = 2
+
+[sub_resource type="VisualShaderNodeInput" id="VisualShaderNodeInput_1x4bw"]
+input_name = "time"
+
+[resource]
+code = "shader_type spatial;
+render_mode blend_mix, depth_draw_opaque, depth_test_default, cull_back, diffuse_lambert, specular_schlick_ggx;
+
+uniform sampler2D tex_frg_2;
+uniform sampler2D tex_frg_5;
+
+
+
+void fragment() {
+// Input:6
+	float n_out6p0 = TIME;
+
+
+// UVFunc:4
+	vec2 n_in4p1 = vec2(0.00100, 0.00100);
+	vec2 n_out4p0 = vec2(n_out6p0) * n_in4p1 + UV;
+
+
+// UVFunc:7
+	vec2 n_in7p1 = vec2(2.00000, 2.00000);
+	vec2 n_in7p2 = vec2(0.00000, 0.00000);
+	vec2 n_out7p0 = (n_out4p0 - n_in7p2) * n_in7p1 + n_in7p2;
+
+
+// Texture2D:2
+	vec4 n_out2p0 = texture(tex_frg_2, n_out7p0);
+
+
+// Input:9
+	float n_out9p0 = TIME;
+
+
+// UVFunc:10
+	vec2 n_in10p1 = vec2(-0.00100, 0.00100);
+	vec2 n_out10p0 = vec2(n_out9p0) * n_in10p1 + UV;
+
+
+// UVFunc:11
+	vec2 n_in11p1 = vec2(2.00000, 2.00000);
+	vec2 n_in11p2 = vec2(0.00000, 0.00000);
+	vec2 n_out11p0 = (n_out10p0 - n_in11p2) * n_in11p1 + n_in11p2;
+
+
+// Texture2D:5
+	vec4 n_out5p0 = texture(tex_frg_5, n_out11p0);
+
+
+// VectorOp:8
+	vec4 n_out8p0 = n_out2p0 * n_out5p0;
+
+
+// Output:0
+	ALBEDO = vec3(n_out8p0.xyz);
+	ALPHA = n_out8p0.x;
+
+
+}
+"
+nodes/fragment/0/position = Vector2(640, 140)
+nodes/fragment/2/node = SubResource("VisualShaderNodeTexture_qr24d")
+nodes/fragment/2/position = Vector2(-100, 40)
+nodes/fragment/4/node = SubResource("VisualShaderNodeUVFunc_b2iwy")
+nodes/fragment/4/position = Vector2(-800, 200)
+nodes/fragment/5/node = SubResource("VisualShaderNodeTexture_n470t")
+nodes/fragment/5/position = Vector2(-100, 680)
+nodes/fragment/6/node = SubResource("VisualShaderNodeInput_th6uq")
+nodes/fragment/6/position = Vector2(-1120, 360)
+nodes/fragment/7/node = SubResource("VisualShaderNodeUVFunc_ceccx")
+nodes/fragment/7/position = Vector2(-500, 180)
+nodes/fragment/8/node = SubResource("VisualShaderNodeVectorOp_myone")
+nodes/fragment/8/position = Vector2(240, 320)
+nodes/fragment/9/node = SubResource("VisualShaderNodeInput_1x4bw")
+nodes/fragment/9/position = Vector2(-1040, 980)
+nodes/fragment/10/node = SubResource("VisualShaderNodeUVFunc_vc2qb")
+nodes/fragment/10/position = Vector2(-720, 820)
+nodes/fragment/11/node = SubResource("VisualShaderNodeUVFunc_jsafc")
+nodes/fragment/11/position = Vector2(-420, 800)
+nodes/fragment/connections = PackedInt32Array(4, 0, 7, 0, 7, 0, 2, 0, 6, 0, 4, 2, 10, 0, 11, 0, 9, 0, 10, 2, 11, 0, 5, 0, 2, 0, 8, 0, 5, 0, 8, 1, 8, 0, 0, 0, 8, 0, 0, 1)
